@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 from fastapi import APIRouter, Depends, Response
 from sqlalchemy.orm import Session
 
-from database import Keys, SessionLocal
+from api.database import Keys, SessionLocal
 
 root_router = APIRouter()
 
