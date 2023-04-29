@@ -1,0 +1,49 @@
+rtmp_auto_push on;
+
+http {
+    server {
+        listen 8000;
+        server_name localhost;
+
+        location /on_play {
+        proxy_pass http:localhost:8000/on_play;
+
+        if ($status = 200) {
+        return 200;
+        }
+
+        return 404;
+        }
+   }
+}
+
+
+rtmp {
+
+	server {
+        access_log /dev/stdout;
+
+		listen 1935;
+
+		application streams {
+
+            live on;
+            on_play http://localhost:8000/on_play;
+
+            wait_key on;
+            wait_video on;
+            interleave on;
+
+            hls on;
+            hls_fragment 3;
+            hls_playlist_length 9;
+            hls_path /var/www/streams;
+            hls_nested on;
+            hls_fragment_naming system;
+            hls_continuous on;
+            hls_type live;
+            hls_cleanup on;
+         }
+
+	}
+}
