@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
-from database import Base, engine
-from views import root_router
+from api.database import Base, engine
+from api.views import root_router
 
 
 Base.metadata.create_all(bind=engine)
