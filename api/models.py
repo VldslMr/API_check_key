@@ -1,13 +1,15 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
-class Client(BaseModel):
-    call: str = 'play'
-    addr: str
-    clientid: str
-    app: str
-    flashVer: str
-    swfUrl: str
-    tcUrl: str
-    pageUrl: int
-    name: str
+class ConnectData(BaseModel):
+    call: Optional[str]
+    addr: Optional[str]
+    clientid: Optional[str]
+    app: Optional[str]
+    flashver: Optional[str]
+    swfurl: Optional[str]
+    tcurl: Optional[str]
+    pageurl: Optional[str]
+    name: Optional[str]
