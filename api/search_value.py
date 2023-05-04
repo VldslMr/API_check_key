@@ -1,4 +1,4 @@
-def search_url(body, pattern):
+def search_value(body, pattern):
     body_str = body.decode('utf-8')
     body_list = body_str.split('&')
     body_dict = {}
