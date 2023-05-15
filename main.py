@@ -3,7 +3,7 @@ from fastapi import FastAPI
 
 from api.database import Base, engine
 from api.views import root_router
-from api.env import Settings
+from api.settings import Settings
 
 
 Base.metadata.create_all(bind=engine)
